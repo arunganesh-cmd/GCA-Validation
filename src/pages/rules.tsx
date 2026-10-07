@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useLocation } from 'wouter'
 import { SiteNav, ButtonWidget } from '@pglevy/sailwind'
 import {
   LayoutList,
@@ -35,6 +36,7 @@ const OPTION_TABS: { id: OptionTab; label: string }[] = [
 ]
 
 export default function Rules() {
+  const [, setLocation] = useLocation()
   const [rules, setRules] = useState<Rule[]>([])
   const [search, setSearch] = useState('')
   const [option, setOption] = useState<OptionTab>('option1')
@@ -122,6 +124,15 @@ export default function Rules() {
             </p>
           </div>
           <div className="flex items-center gap-3 pt-1">
+            <ButtonWidget
+              label="Start Review"
+              style="OUTLINE"
+              color="ACCENT"
+              size="SMALL"
+              icon="ClipboardCheck"
+              iconPosition="START"
+              onClick={() => setLocation('/rules-review')}
+            />
             <ButtonWidget label="Create Rule" style="OUTLINE" color="ACCENT" size="SMALL" icon="Plus" iconPosition="START" />
             <ButtonWidget label="Create Rules with AI" style="SOLID" color="ACCENT" size="SMALL" icon="Sparkles" iconPosition="START" />
           </div>

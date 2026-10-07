@@ -13,6 +13,7 @@ import ValidateClauseSetEmpty from './pages/validate-clause-set-empty'
 import AiClauseSelection from './pages/ai-clause-selection'
 import AddSuggestedClauses from './pages/add-suggested-clauses'
 import Rules from './pages/rules'
+import RulesReview from './pages/rules-review'
 
 const pages = [
   { path: '/', title: 'Kanban Board', component: KanbanBoard },
@@ -26,6 +27,7 @@ const pages = [
   { path: '/ai-clause-selection', title: 'AI Clause Selection', component: AiClauseSelection },
   { path: '/add-suggested-clauses', title: 'Add Suggested Clauses', component: AddSuggestedClauses },
   { path: '/rules', title: 'Rules', component: Rules },
+  { path: '/rules-review', title: 'Review Rules', component: RulesReview },
 ]
 
 function App() {

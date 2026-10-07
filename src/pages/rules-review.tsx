@@ -27,8 +27,11 @@ const OPTION_TABS: { id: Option; label: string }[] = [
 ]
 
 export default function RulesReview() {
-  const [, setLocation] = useLocation()
-  const [option, setOption] = useState<Option>('option1')
+  const [location, setLocation] = useLocation()
+  // Derive the option from the URL so each tab has its own shareable link.
+  const option: Option = location.includes('option-2') ? 'option2' : 'option1'
+  const setOption = (next: Option) =>
+    setLocation(next === 'option2' ? '/rules-review/option-2' : '/rules-review')
   const [rules, setRules] = useState<Rule[]>([])
 
   useEffect(() => {

@@ -27,7 +27,8 @@ const pages = [
   { path: '/ai-clause-selection', title: 'AI Clause Selection', component: AiClauseSelection },
   { path: '/add-suggested-clauses', title: 'Add Suggested Clauses', component: AddSuggestedClauses },
   { path: '/rules', title: 'Rules', component: Rules },
-  { path: '/rules-review', title: 'Review Rules', component: RulesReview },
+  { path: '/rules-review', title: 'Review Rules (Option 1)', component: RulesReview },
+  { path: '/rules-review/option-2', title: 'Review Rules (Option 2)', component: RulesReview },
 ]
 
 function App() {

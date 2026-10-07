@@ -15,7 +15,8 @@ export default function Home() {
     { title: 'AI Clause Selection', path: '/ai-clause-selection', description: 'Enter contract details, upload SOW, and let AI suggest clauses with confidence tiers' },
     { title: 'Add Suggested Clauses', path: '/add-suggested-clauses', description: 'Two-panel picker to select suggested clauses and stage them for addition to a clause set' },
     { title: 'Rules', path: '/rules', description: 'Clause Automation admin screen listing conditional rules that include or exclude clauses based on clause set data' },
-    { title: 'Review Rules', path: '/rules-review', description: 'Two-pane review screen for OOTB-generated rules with Edit/Preview tabs and Accept & Next flow' },
+    { title: 'Review Rules (Option 1)', path: '/rules-review', description: '70/30 panes with prev/next in the header and Save Draft + Accept & Next footer' },
+    { title: 'Review Rules (Option 2)', path: '/rules-review/option-2', description: 'Paginated left rule list with Prescription / Clause / Conditions tabs on the right' },
   ]
 
   return (

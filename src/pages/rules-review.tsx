@@ -253,7 +253,11 @@ function Option1LeftPane(props: Option1LeftPaneProps) {
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 py-5">
-        {mode === 'PREVIEW' ? <ConditionsPreview rule={rule} /> : <EditForm rule={rule} />}
+        {mode === 'PREVIEW' ? (
+          <ConditionsPreview rule={rule} />
+        ) : (
+          <EditForm rule={rule} showStatus={false} />
+        )}
       </div>
     </section>
   )
@@ -672,7 +676,7 @@ function ConditionsPreview({ rule }: { rule: Rule }) {
   )
 }
 
-function EditForm({ rule }: { rule: Rule }) {
+function EditForm({ rule, showStatus = true }: { rule: Rule; showStatus?: boolean }) {
   const [name, setName] = useState(rule.name)
   const [status, setStatus] = useState<'Active' | 'Inactive' | 'Draft'>(
     rule.status === 'Active' ? 'Active' : 'Draft'
@@ -691,7 +695,7 @@ function EditForm({ rule }: { rule: Rule }) {
 
   return (
     <div className="space-y-5">
-      <div className="grid grid-cols-2 gap-6">
+      <div className={showStatus ? 'grid grid-cols-2 gap-6' : ''}>
         <FormField label="Name" required>
           <input
             type="text"
@@ -700,25 +704,27 @@ function EditForm({ rule }: { rule: Rule }) {
             className="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
         </FormField>
-        <FormField label="Status" required>
-          <div className="flex items-center gap-6 pt-1.5">
-            <RadioOption
-              label="Active"
-              checked={status === 'Active'}
-              onChange={() => setStatus('Active')}
-            />
-            <RadioOption
-              label="Inactive"
-              checked={status === 'Inactive'}
-              onChange={() => setStatus('Inactive')}
-            />
-            <RadioOption
-              label="Draft"
-              checked={status === 'Draft'}
-              onChange={() => setStatus('Draft')}
-            />
-          </div>
-        </FormField>
+        {showStatus && (
+          <FormField label="Status" required>
+            <div className="flex items-center gap-6 pt-1.5">
+              <RadioOption
+                label="Active"
+                checked={status === 'Active'}
+                onChange={() => setStatus('Active')}
+              />
+              <RadioOption
+                label="Inactive"
+                checked={status === 'Inactive'}
+                onChange={() => setStatus('Inactive')}
+              />
+              <RadioOption
+                label="Draft"
+                checked={status === 'Draft'}
+                onChange={() => setStatus('Draft')}
+              />
+            </div>
+          </FormField>
+        )}
       </div>
 
       <div>
